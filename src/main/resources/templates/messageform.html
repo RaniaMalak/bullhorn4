@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="#"
+      th:action="@{/add}"
+      th:object="${message}"
+      method="post" enctype="multipart/form-data">
+
+    <input type="hidden" th:field="*{id}" />
+    Content:<textarea rows="3" th:field="*{content}" />
+    <span th:if="${#fields.hasErrors('content')}"
+          th:errors="*{title}"></span><br/>
+
+    Postdate:<input type="text" th:field="*{postdate}"/>
+    <span th:if="${#fields.hasErrors('postdate')}"
+          th:errors="*{postdate}"></span><br/>
+
+    Sentby:<input type="text" th:field="*{sentby}" />
+    <span th:if="${#fields.hasErrors('sentby')}"
+          th:errors="*{sentby}"></span><br/><br/>
+
+    <input type="file" name="file"/><br/></br>
+
+    <input type="submit" value="Submit" />
+</form>
+</body>
+</html>
