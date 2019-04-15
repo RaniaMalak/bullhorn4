@@ -13,7 +13,7 @@
     <input type="hidden" th:field="*{id}" />
     Content:<textarea rows="3" th:field="*{content}" />
     <span th:if="${#fields.hasErrors('content')}"
-          th:errors="*{title}"></span><br/>
+          th:errors="*{content}"></span><br/>
 
     Postdate:<input type="text" th:field="*{postdate}"/>
     <span th:if="${#fields.hasErrors('postdate')}"
