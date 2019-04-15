@@ -9,7 +9,8 @@
 Content :<p th:text="${message.content}"></p><br/><br/>
 Post date :<span th:text="${message.postdate}"></span><br/>
 Sent by: <span th:text="${message.sentby}"></span><br/>
-<a th:href="@{/delete/{id}(id=${message.id})}">Delete this message</a>
+<a th:href="@{/delete/{id}(id=${message.id})}">Delete this message</a><br/>
 
+<a href="/add">Add Message</a>
 </body>
 </html>
