@@ -35,11 +35,12 @@ public class HomeController {
     }
 
     @PostMapping("/add")
-    public String processForm(@ModelAttribute Message message, @RequestParam("file") MultipartFile file) {
-        if (file.isEmpty()) {
+    public String processForm(@Valid Message message, BindingResult result ,@RequestParam("file") MultipartFile file) {
+        if (result.hasErrors()) {
             return "redirect:/add";
         }
         try {
+            
             Map uploadResult = cloudc.upload(file.getBytes(),
                     ObjectUtils.asMap("resourcetype", "auto"));
             message.setPicture(uploadResult.get("url").toString());
