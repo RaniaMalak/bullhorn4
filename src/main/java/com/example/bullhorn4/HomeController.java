@@ -39,8 +39,9 @@ public class HomeController {
         if (result.hasErrors()) {
             return "redirect:/add";
         }
+
         try {
-            
+
             Map uploadResult = cloudc.upload(file.getBytes(),
                     ObjectUtils.asMap("resourcetype", "auto"));
             message.setPicture(uploadResult.get("url").toString());
@@ -50,6 +51,7 @@ public class HomeController {
             e.printStackTrace();
             return "redirect:/add";
         }
+        messageRepository.save(message);
         return "redirect:/";
     }
 
