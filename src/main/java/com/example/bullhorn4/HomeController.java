@@ -37,7 +37,7 @@ public class HomeController {
     @PostMapping("/add")
     public String processForm(@Valid Message message, BindingResult result ,@RequestParam("file") MultipartFile file) {
         if (result.hasErrors()) {
-            return "redirect:/add";
+            return "messageform";
         }
 
         try {
@@ -51,7 +51,7 @@ public class HomeController {
             e.printStackTrace();
             return "redirect:/add";
         }
-        messageRepository.save(message);
+
         return "redirect:/";
     }
 
